@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <h1>Create new User</h1>
+   {#  {{ include('user/_form.html.twig') }} #}
+{{ form_start(form) }}
+
+    <div class="field">
+      {{ form_label(form.email) }}
+      {{ form_widget(form.email) }}
+    </div>
+    <div class="field">
+      {{ form_label(form.password) }}
+      {{ form_widget(form.password) }}
+    </div>
+    <div class="field">
+        <label for="repeat_password">Confirmez le password</label>
+        <input type="password" id="repeat_password" placeholder="confirmez le pasword" />
+    </div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+
+    <a href="{{ path('app_user_index') }}">back to list</a>
+{% endblock %}

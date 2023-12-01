@@ -2,15 +2,37 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}MediaCom!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
         {% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
+
     </head>
     <body>
+         <header>
+            <div class="container">
+                <h1>Bienvenue sur Ma Musique</h1>
+                <nav>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="{{path("listesMusiques")}}">Musiques</a></li>
+                        <li><a href="{{path("monespace")}}">Mon Espace</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         {% block body %}{% endblock %}
+            <!-- Modal -->
+        <div id="musicModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+        {% block javascripts %}
+            <script src="{{asset('js/main.js')}}"></script>
+        {% endblock %}
     </body>
 </html>
